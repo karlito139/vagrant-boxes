@@ -1,0 +1,34 @@
+{
+  "variables": {
+    "PACKER_OS_FLAVOUR": "debian",
+    "PACKER_BOX_NAME": "debian-8.2.0-amd64",
+    "AWS_ACCESS_KEY_ID": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "AWS_SECRET_ACCESS_KEY": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "PACKER_ATLAS_TOKEN": "{{env `PACKER_ATLAS_TOKEN`}}",
+    "PACKER_ATLAS_VERSION": "",
+    "DISK_SIZE": "20000"
+  },
+  "builders": [
+    {
+      "type": "digitalocean",
+      "api_token": "c5de07f3b8a458b2fbe5b9c97d02283c80054c4d6ff1efc703bcf9f046ec3750",
+      "image": "debian-8-x64",
+      "region": "ams3",
+      "size": "512mb",
+      "private_networking": "false"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/update.sh",
+        "scripts/web.sh",
+        "scripts/django.sh",
+        "scripts/latex.sh",
+        "scripts/cheatProofTest.sh",
+        "scripts/cleanup.sh"
+      ]
+    }
+  ]
+}
