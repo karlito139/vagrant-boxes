@@ -7,8 +7,8 @@ MYSQL_ROOT_PASS="supertuxpowa" # Put yours
 
 #install nginx mariaDB php
 export DEBIAN_FRONTEND=noninteractive
-debconf-set-selections <<< 'mariadb-server-10.0 mysql-server/root_password password $MYSQL_ROOT_PASS'
-debconf-set-selections <<< 'mariadb-server-10.0 mysql-server/root_password_again password $MYSQL_ROOT_PASS'
+debconf-set-selections <<< "mariadb-server-10.0 mysql-server/root_password password $MYSQL_ROOT_PASS"
+debconf-set-selections <<< "mariadb-server-10.0 mysql-server/root_password_again password $MYSQL_ROOT_PASS"
 
 
 apt-get -y install nginx
@@ -16,12 +16,12 @@ apt-get -y install mariadb-server
 apt-get -y install php5-common php5-cli php5-fpm php5-mysqlnd
 
 
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/dbconfig-install boolean false'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/admin-user string root'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/admin-pass password $MYSQL_ROOT_PASS'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/app-pass password $MYSQL_ROOT_PASS'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/app-password-confirm password $MYSQL_ROOT_PASS'
+debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean false"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-user string root"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $MYSQL_ROOT_PASS"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $MYSQL_ROOT_PASS"
+debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $MYSQL_ROOT_PASS"
 
 apt-get -y install phpmyadmin
 
