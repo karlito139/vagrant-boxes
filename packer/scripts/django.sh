@@ -59,7 +59,7 @@ systemctl enable django.service
 # }
 # EOF
 
-ln -s /etc/nginx/sites-available/django /etc/nginx/sites-enabled/django
+#ln -s /etc/nginx/sites-available/django /etc/nginx/sites-enabled/django
 
 systemctl enable nginx
 systemctl start nginx
