@@ -6,7 +6,7 @@
     "AWS_SECRET_ACCESS_KEY": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "PACKER_ATLAS_TOKEN": "{{env `PACKER_ATLAS_TOKEN`}}",
     "PACKER_ATLAS_VERSION": "",
-    "DISK_SIZE": "25140"
+    "DISK_SIZE": "20000"
   },
   "builders": [
     {
@@ -48,46 +48,6 @@
         [ "modifyvm", "{{.Name}}", "--memory", "1024" ],
         [ "modifyvm", "{{.Name}}", "--cpus", "2" ]
       ]
-    },
-    {
-      "type": "vmware-iso",
-      "boot_command": [
-        "<esc><wait>",
-        "install <wait>",
-        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `PACKER_BOX_NAME` }}/preseed.cfg <wait>",
-        "debian-installer=en_US <wait>",
-        "auto <wait>",
-        "locale=en_US <wait>",
-        "kbd-chooser/method=us <wait>",
-        "keyboard-configuration/xkb-keymap=us <wait>",
-        "netcfg/get_hostname={{ .Name }} <wait>",
-        "netcfg/get_domain=vagrantup.com <wait>",
-        "fb=false <wait>",
-        "debconf/frontend=noninteractive <wait>",
-        "console-setup/ask_detect=false <wait>",
-        "console-keymaps-at/keymap=us <wait>",
-        "<enter><wait>"
-      ],
-      "boot_wait": "10s",
-      "headless": true,
-      "disk_size": "{{ user `DISK_SIZE` }}",
-      "guest_os_type": "debian7-64",
-      "http_directory": "http",
-      "iso_checksum": "923cd1bfbfa62d78aecaa92d919ee54a95c8fca834b427502847228cf06155e7243875f59279b0bf6bfd1b579cbe2f1bc80528a265dafddee9a9d2a197ef3806",
-      "iso_checksum_type": "sha512",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/8.2.0/amd64/iso-cd/{{ user `PACKER_BOX_NAME` }}-netinst.iso",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
-      "ssh_port": 22,
-      "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -hP now",
-      "tools_upload_flavor": "linux",
-      "vm_name": "{{ user `PACKER_BOX_NAME` }}",
-      "vmx_data": {
-        "memsize": "1024",
-        "numvcpus": "2",
-        "cpuid.coresPerSocket": "1"
-      }
     }
   ],
   "provisioners": [
@@ -101,8 +61,6 @@
         "scripts/sudoers.sh",
         "scripts/vagrant.sh",
         "scripts/vmtools.sh",
-        "scripts/ruby.sh",
-        "scripts/chef.sh",
         "scripts/filesystem.sh",
         "scripts/cleanup.sh"
       ]
