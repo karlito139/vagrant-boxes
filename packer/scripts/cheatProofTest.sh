@@ -46,9 +46,34 @@ set -o nounset
 pip install django
 pip install gunicorn
 #pip install psycopg2
+pip install djangular
+
+#maybe : python-mysql.connector
+apt-get install -y python-mysqldb libmysqlclient-dev python-dev
+pip install mysqlclient
+
+#need user password
+#git clone https://github.com/karlito139/dsCreator.git
+
+#Need to create the DB
+
+#edit setting.py (use the release version)
+#cd dsCreator/dsCreator/
+#mv settings.py settings.py_debug
+#mv settings.py_realease settings.py
+
+#create the static folder
+#cd ..
+#mkdir static
 
 
+#./manage.py makemigrations
+#./manage.py migrate
+#./manage.py createsuperuser
+#./manage.py collectstatic
 
+
+#http://askbot.org/en/question/11851/valueerror-the-database-backend-does-not-accept-0-as-a-value-for-autofield/
 
 
 #Deploy the app itself

@@ -4,3 +4,5 @@
 todo:
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04
 
+ssl : 
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04

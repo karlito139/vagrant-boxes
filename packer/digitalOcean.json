@@ -24,6 +24,7 @@
       "scripts": [
         "scripts/update.sh",
         "scripts/web.sh",
+        "scripts/ssl.sh",
         "scripts/django.sh",
         "scripts/latex.sh",
         "scripts/cheatProofTest.sh",

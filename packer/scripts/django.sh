@@ -36,7 +36,6 @@ WantedBy=multi-user.target
 EOF
 
 systemctl enable django.service
-#systemctl start django.service
 
 
 ##################
@@ -61,5 +60,4 @@ systemctl enable django.service
 
 #ln -s /etc/nginx/sites-available/django /etc/nginx/sites-enabled/django
 
-systemctl enable nginx
-systemctl start nginx
+#systemctl start nginx
