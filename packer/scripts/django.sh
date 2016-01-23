@@ -53,8 +53,8 @@ cd /etc/uwsgi/sites
 #configuration file
 cat <<EOF > /etc/uwsgi/sites/cheatprooftest.ini
 [uwsgi]
-project = cheatprooftest
-base = /opt/cheatProofTest/dsCreator/
+project = dsCreator
+base = /opt/cheatProofTest
 
 chdir = %(base)/%(project)
 home = %(base)/Env/%(project)
