@@ -114,4 +114,4 @@ ln -s /etc/nginx/sites-available/cheatprooftest /etc/nginx/sites-enabled/cheatpr
 
 
 service nginx restart
-service uwsgi start
+#service uwsgi start
