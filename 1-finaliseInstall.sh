@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#We fetch the application
+cd /opt/cheatProofTest/
+
+#enter the virtual environnement
+source bin/activate
+
+
 
 cd /opt/cheatProofTest/dsCreator/
 
